@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>HTML5 javascript canvas mandelbrot live demo</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/mandelbrot.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="mandelbrot/js-canvas/mandelbrot.js" ></script>
+    <script type="text/javascript" src="mandelbrot/js-canvas/keyhandler.js" ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <h1>Interactive HTML5 Mandelbrot Set</h1>
+        <div id="instructions">
+          <p>Use the arrow keys &nbsp; <span class="key">←</span> <span class="key">↑</span> <span class="key">↓</span> <span class="key">→</span> &nbsp; to move around, 
+          <br /><span class="key">W</span> / <span class="key">Q</span> to zoom In and Out, &nbsp; &nbsp; [for endless hours of fun]</p>
+        </div>  
+        <div id="canvas"></div>
+        <div id="wiki">
+          <p>The <strong>Mandelbrot set</strong> is a mathematical set of points whose boundary is a distinctive and easily recognizable two-dimensional fractal shape. The set is closely related to Julia sets (which include similarly complex shapes), and is named after the mathematician Benoit Mandelbrot, who studied and popularized it.</p>
+          <p>Mandelbrot set images are made by sampling complex numbers and determining for each whether the result tends towards infinity when a particular mathematical operation is iterated on it. Treating the real and imaginary parts of each number as image coordinates, pixels are colored according to how rapidly the sequence diverges, if at all.</p>
+          <p>More precisely, the Mandelbrot set is the set of values of c in the complex plane for which the orbit of 0 under iteration of the complex quadratic polynomial Zn+1 = Zn^2 + C remains bounded. That is, a complex number c is part of the Mandelbrot set if, when starting with z0 = 0 and applying the iteration repeatedly, the absolute value of zn remains bounded however large n gets.</p>
+          <a href="http://en.wikipedia.org/wiki/Mandelbrot_set"><h4>From Wikipedia, the free encyclopedia</h4></a>
+        </div>
+
+        <p><a href="http://leerons.github.io/">Leeron Shalev on GitHub</a> &nbsp; | &nbsp;  <a href="https://github.com/danyshaanan/mandelbrot">Project Repository Page</a></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+        var WIDTH = 750;
+        var canvas = document.createElement('canvas');
+        canvas.width  = WIDTH;
+        canvas.height = Math.round(WIDTH / 1.75);
+        document.getElementById('canvas').appendChild(canvas);
+        // Draw the Mandelbrot Set
+        mandelbrot.draw(canvas, 100);
+        //  Keyboard Events
+        keyHandler.listen(100);
+    </script>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
